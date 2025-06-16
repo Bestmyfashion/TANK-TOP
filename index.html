@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Top Premium - Nyaman & Stylish untuk Wanita Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B8B',
+                        secondary: '#FF8E9E',
+                        dark: '#333333',
+                        light: '#F8F8F8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B8B 0%, #FF8E9E 100%);
+        }
+        
+        .product-shadow {
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.3);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: slideIn 0.5s forwards, slideOut 0.5s forwards 3s;
+            transform: translateX(120%);
+        }
+        
+        @keyframes slideIn {
+            to { transform: translateX(0); }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); }
+            to { transform: translateX(120%); }
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .chat-bubble {
+            animation: pulse-slow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold">TankTop<span class="font-light">Premium</span></h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#features" class="hover:text-gray-200 transition">Keunggulan</a>
+                <a href="#testimonials" class="hover:text-gray-200 transition">Testimoni</a>
+                <a href="#gallery" class="hover:text-gray-200 transition">Galeri</a>
+                <a href="#order" class="bg-white text-primary px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Beli Sekarang</a>
+            </div>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white text-dark py-4 px-4 absolute w-full left-0 shadow-lg" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#features" class="hover:text-primary transition">Keunggulan</a>
+                <a href="#testimonials" class="hover:text-primary transition">Testimoni</a>
+                <a href="#gallery" class="hover:text-primary transition">Galeri</a>
+                <a href="#order" class="gradient-bg text-white px-4 py-2 rounded-full font-medium text-center">Beli Sekarang</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-12 md:py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Tank Top Premium dengan Desain Eksklusif</h1>
+                <p class="text-xl mb-6">Nyaman dipakai seharian dengan bahan berkualitas tinggi yang membuat Anda tetap stylish.</p>
+                <div class="flex items-center mb-6">
+                    <div class="flex mr-4">
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </div>
+                    <span>500+ Reviews</span>
+                </div>
+                <div class="bg-white text-primary rounded-lg p-4 inline-block mb-6">
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold">Rp175.000</span>
+                        <span class="ml-2 line-through text-gray-500">Rp350.000</span>
+                        <span class="ml-2 bg-red-500 text-white text-xs px-2 py-1 rounded">50% OFF</span>
+                    </div>
+                </div>
+                <a href="#order" class="bg-white text-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition inline-block">BELI SEKARANG</a>
+                <div class="mt-4 flex items-center text-sm">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Garansi 100% Original atau Uang Kembali</span>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://static.compgoo.com/ueditor/autoLoad/23bb12a3bd48704386d6f0f92fdd946b3255311792771007109763EN17c9a778d594c025dc99213019cdf6bcf.gif" alt="Tank Top Premium" class="w-full max-w-md rounded-lg product-shadow animate-float">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <i class="fas fa-truck text-3xl text-primary mr-3"></i>
+                    <div>
+                        <div class="font-bold">Gratis Ongkir</div>
+                        <div class="text-sm text-gray-600">Seluruh Indonesia</div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt text-3xl text-primary mr-3"></i>
+                    <div>
+                        <div class="font-bold">Garansi</div>
+                        <div class="text-sm text-gray-600">100% Original</div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-credit-card text-3xl text-primary mr-3"></i>
+                    <div>
+                        <div class="font-bold">Pembayaran</div>
+                        <div class="text-sm text-gray-600">Aman & Mudah</div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-headset text-3xl text-primary mr-3"></i>
+                    <div>
+                        <div class="font-bold">Customer Service</div>
+                        <div class="text-sm text-gray-600">Siap Membantu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Solution -->
+    <section class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Masalah yang Sering Dihadapi Wanita</h2>
+                <p class="text-lg max-w-3xl mx-auto">Kami memahami tantangan yang Anda hadapi dalam memilih pakaian sehari-hari yang nyaman dan stylish</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-times text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Bahan Tidak Nyaman</h3>
+                    </div>
+                    <p class="text-gray-600">Banyak tank top di pasaran menggunakan bahan yang panas, gatal, dan tidak menyerap keringat, membuat tidak nyaman saat dipakai seharian.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-times text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Desain Tidak Pas</h3>
+                    </div>
+                    <p class="text-gray-600">Tank top biasa seringkali terlalu longgar atau terlalu ketat, tidak memberikan bentuk yang elegan untuk tubuh wanita.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-times text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Mudah Luntur</h3>
+                    </div>
+                    <p class="text-gray-600">Warna cepat pudar setelah beberapa kali pencucian, membuat tank top terlihat kusam dan tidak menarik.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 text-red-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-times text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Tidak Tahan Lama</h3>
+                    </div>
+                    <p class="text-gray-600">Kualitas jahitan yang buruk membuat tank top cepat melar atau robek, harus sering mengganti dengan yang baru.</p>
+                </div>
+            </div>
+            
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-primary">Solusi dari Tank Top Premium Kami</h3>
+                <p class="text-lg mb-6">Tank Top Premium kami dirancang khusus untuk mengatasi semua masalah tersebut dengan bahan berkualitas tinggi, desain yang pas di badan, dan jahitan kuat yang tahan lama.</p>
+                <img src="https://static.compgoo.com/ueditor/autoLoad/20e95e0ab3d5ddbfc1914fde08d323773255311792771007109763EN1d0c57a75e4fbb302e2f3774d76a8d0ad.gif" alt="Solusi Tank Top Premium" class="w-full max-w-md mx-auto rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Keunggulan Tank Top Premium</h2>
+                <p class="text-lg max-w-3xl mx-auto">Dibuat dengan bahan terbaik dan desain yang sempurna untuk kenyamanan maksimal</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-leaf text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bahan Berkualitas Tinggi</h3>
+                    <p class="text-gray-600">Terbuat dari 95% Cotton dan 5% Spandex premium yang lembut, menyerap keringat, dan tidak mudah melar.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-ruler-combined text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Desain Pas di Badan</h3>
+                    <p class="text-gray-600">Potongan yang sempurna dengan bagian atas yang lebih narrow untuk silhouette yang lebih elegan.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-palette text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Warna Tahan Lama</h3>
+                    <p class="text-gray-600">Proses pewarnaan khusus membuat warna tetap cerah meski setelah dicuci berkali-kali.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-seedling text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ramah Kulit</h3>
+                    <p class="text-gray-600">Bahan hypoallergenic yang aman untuk kulit sensitif, tidak menyebabkan iritasi atau gatal.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-tshirt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Multi Fungsi</h3>
+                    <p class="text-gray-600">Cocok untuk berbagai aktivitas sehari-hari, dari santai di rumah hingga hangout dengan teman.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg hover:shadow-lg transition">
+                    <div class="bg-primary bg-opacity-10 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-medal text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Kualitas Premium</h3>
+                    <p class="text-gray-600">Jahitan kuat dan presisi yang menjamin ketahanan produk dalam jangka panjang.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg p-8 md:p-12 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Kenapa Harus Memilih Tank Top Kami?</h3>
+                    <p class="text-lg mb-6">Tank Top Premium kami bukan hanya sekedar pakaian biasa, tapi investasi untuk kenyamanan dan gaya Anda sehari-hari.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>Bahan premium yang tidak mudah melar atau berubah bentuk</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>Desain yang dibuat khusus untuk bentuk tubuh wanita Indonesia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                            <span>Proses produksi yang memperhatikan setiap detail kualitas</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://static.compgoo.com/ueditor/autoLoad/fd875800bf41b46eef9df6b05dbb502f3255311792771007109763EN1c25a89861a936bd4c3c62174abfd58f0.gif" alt="Tank Top Premium Detail" class="w-full rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Galeri Produk</h2>
+                <p class="text-lg max-w-3xl mx-auto">Lihat lebih dekat kualitas dan detail Tank Top Premium kami</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="cursor-pointer" onclick="openModal('https://pic.compgoo.com/ueditor/autoLoad/b08ecc8aa0ff8f90c2aca831971a0ef53255311792771007109763EN2b468e389fccc4f6c2c46bdc6fbd121b6.jpg')">
+                    <img src="https://pic.compgoo.com/ueditor/autoLoad/b08ecc8aa0ff8f90c2aca831971a0ef53255311792771007109763EN2b468e389fccc4f6c2c46bdc6fbd121b6.jpg" alt="Tank Top 1" class="w-full h-48 md:h-64 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://pic.compgoo.com/ueditor/autoLoad/b06cbdf8f64614e7dd8b19b7979041873255311792771007109763EN227e2291b691fb6450c55fe114b0093e4.jpg?_t=1750029695&_s=18a63384ea405a793701ab31566f2156&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=233ddb7297696bc223ef95055216b3d6')">
+                    <img src="https://pic.compgoo.com/ueditor/autoLoad/b06cbdf8f64614e7dd8b19b7979041873255311792771007109763EN227e2291b691fb6450c55fe114b0093e4.jpg?_t=1750029695&_s=18a63384ea405a793701ab31566f2156&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=233ddb7297696bc223ef95055216b3d6" alt="Tank Top 2" class="w-full h-48 md:h-64 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://pic.compgoo.com/ueditor/autoLoad/36a66766e3550d7ffa2c07cb1677b9373255311792771007109763EN291d7dfcf53265e705901759471b11108.jpg?_t=1750029695&_s=8590545f17bb8aa03d45a35a1d893175&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=a41cdd9e0258d3768101d89a50cf835c')">
+                    <img src="https://pic.compgoo.com/ueditor/autoLoad/36a66766e3550d7ffa2c07cb1677b9373255311792771007109763EN291d7dfcf53265e705901759471b11108.jpg?_t=1750029695&_s=8590545f17bb8aa03d45a35a1d893175&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=a41cdd9e0258d3768101d89a50cf835c" alt="Tank Top 3" class="w-full h-48 md:h-64 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://pic.compgoo.com/ueditor/autoLoad/4f7b81cc58661be23cc5ac6be89fc9753255311792771007109763EN2d339d8be8220c90351f56aa374957ab0.jpg?_t=1750029695&_s=a0852edb7fa666da5a4b9b4c962a4a02&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=79c57408fbe1a38eb1e1a471008922c6')">
+                    <img src="https://pic.compgoo.com/ueditor/autoLoad/4f7b81cc58661be23cc5ac6be89fc9753255311792771007109763EN2d339d8be8220c90351f56aa374957ab0.jpg?_t=1750029695&_s=a0852edb7fa666da5a4b9b4c962a4a02&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=79c57408fbe1a38eb1e1a471008922c6" alt="Tank Top 4" class="w-full h-48 md:h-64 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="cursor-pointer" onclick="openModal('https://pic.compgoo.com/ueditor/autoLoad/23ac2322ad27e11a088ccf9d17842ecf3255311792771007109763EN2c7f7235b47f8099b6dc8e61b3cfed9c2.jpg?_t=1750029695&_s=f8ac301d0f03d51fe0fa5c6ea7e26e88&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=5b7f38f822f19d8617bb9a4dfebba242')">
+                    <img src="https://pic.compgoo.com/ueditor/autoLoad/23ac2322ad27e11a088ccf9d17842ecf3255311792771007109763EN2c7f7235b47f8099b6dc8e61b3cfed9c2.jpg?_t=1750029695&_s=f8ac301d0f03d51fe0fa5c6ea7e26e88&_token=4842356c775d08656212170d3b44d3ad&_e=10&_c=5b7f38f822f19d8617bb9a4dfebba242" alt="Tank Top 5" class="w-full h-48 md:h-64 object-cover rounded-lg hover:opacity-90 transition">
+                </div>
+                <div class="bg-primary bg-opacity-10 rounded-lg flex items-center justify-center cursor-pointer" onclick="openModal('https://static.compgoo.com/ueditor/autoLoad/23bb12a3bd48704386d6f0f92fdd946b3255311792771007109763EN17c9a778d594c025dc99213019cdf6bcf.gif')">
+                    <div class="text-center p-6">
+                        <i class="fas fa-images text-4xl text-primary mb-3"></i>
+                        <p class="font-medium">Lihat Semua Foto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Image Modal -->
+        <div class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 opacity-0 invisible transition" id="imageModal">
+            <div class="modal-content bg-white rounded-lg max-w-4xl w-full p-4 relative">
+                <button class="absolute -top-3 -right-3 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-secondary transition" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="" alt="" class="w-full max-h-screen" id="modalImage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Apa Kata Pelanggan Kami?</h2>
+                <p class="text-lg max-w-3xl mx-auto">Ribuan wanita Indonesia sudah merasakan kenyamanan Tank Top Premium kami</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Wijaya</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Bahan sangat nyaman dipakai, tidak panas dan menyerap keringat dengan baik. Desainnya juga sangat flattering untuk bentuk tubuh saya."</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Dian Permata</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sudah beli 3 warna berbeda karena sangat puas dengan kualitasnya. Tidak melar meski sudah dicuci berkali-kali. Worth every penny!"</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Rina Hartono</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Potongannya sangat pas di badan, tidak terlalu ketat tapi juga tidak terlalu longgar. Sangat cocok untuk dipakai sehari-hari."</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maya Susanti</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Warnanya tidak luntur meski sudah dicuci berkali-kali. Pengiriman juga cepat dan packing rapi. Recommended banget!"</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Tank%20Top%20Premium" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition">
+                    <i class="fab fa-whatsapp mr-2"></i> Tanya Customer Lainnya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-12 md:py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tank Top Premium</h2>
+                <p class="text-xl mb-6">Kini hadir dengan harga spesial untuk Anda!</p>
+                
+                <div class="bg-white text-primary rounded-lg p-6 inline-block mb-8">
+                    <div class="flex flex-col md:flex-row items-center justify-center">
+                        <div class="mb-4 md:mb-0 md:mr-8">
+                            <div class="text-3xl font-bold">Rp175.000</div>
+                            <div class="line-through text-gray-500">Rp350.000</div>
+                        </div>
+                        <div class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            DISKON 50% HARI INI SAJA!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+                    <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                        <i class="fas fa-users mr-2"></i>
+                        <span><span id="viewerCount">1248</span> Orang sedang melihat produk ini</span>
+                    </div>
+                    <div class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                        <i class="fas fa-box-open mr-2"></i>
+                        <span>Tersisa <span id="stockCount">27</span> pcs lagi</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 rounded-lg p-4 mb-8">
+                    <div class="font-bold mb-2">PROMO BERAKHIR DALAM:</div>
+                    <div class="flex justify-center space-x-2 text-2xl font-mono" id="countdown">
+                        <div class="bg-white text-primary px-3 py-1 rounded">
+                            <span id="hours">00</span>
+                        </div>
+                        <span>:</span>
+                        <div class="bg-white text-primary px-3 py-1 rounded">
+                            <span id="minutes">00</span>
+                        </div>
+                        <span>:</span>
+                        <div class="bg-white text-primary px-3 py-1 rounded">
+                            <span id="seconds">00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">PILIH WARNA:</h3>
+                    <div class="flex justify-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-black cursor-pointer border-2 border-white shadow-md" title="Hitam"></div>
+                        <div class="w-12 h-12 rounded-full bg-white cursor-pointer border-2 border-white shadow-md" title="Putih"></div>
+                        <div class="w-12 h-12 rounded-full bg-gray-400 cursor-pointer border-2 border-white shadow-md" title="Abu-abu"></div>
+                        <div class="w-12 h-12 rounded-full bg-blue-400 cursor-pointer border-2 border-white shadow-md" title="Biru"></div>
+                        <div class="w-12 h-12 rounded-full bg-pink-300 cursor-pointer border-2 border-white shadow-md" title="Pink"></div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <a href="#order-form" class="bg-white text-primary px-6 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition flex items-center justify-center">
+                        <i class="fas fa-shopping-cart mr-2"></i> BELI SEKARANG
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Tank%20Top%20Premium" class="bg-green-500 text-white px-6 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> VIA WHATSAPP
+                    </a>
+                </div>
+                
+                <div class="mt-6 text-sm">
+                    <i class="fas fa-lock mr-2"></i> Pembayaran aman melalui sistem kami
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto" id="order-form">
+                <h3 class="text-2xl font-bold text-center text-dark mb-6">FORM PEMESANAN</h3>
+                
+                <form class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Nomor WhatsApp</label>
+                        <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Alamat Lengkap</label>
+                        <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" required></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Warna yang Dipilih</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                            <option value="">Pilih Warna</option>
+                            <option value="hitam">Hitam</option>
+                            <option value="putih">Putih</option>
+                            <option value="abu-abu">Abu-abu</option>
+                            <option value="biru">Biru</option>
+                            <option value="pink">Pink</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Jumlah Pesanan</label>
+                        <input type="number" min="1" value="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label class="block text-dark font-medium mb-2">Metode Pembayaran</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                            <option value="">Pilih Pembayaran</option>
+                            <option value="transfer">Transfer Bank</option>
+                            <option value="cod">COD (Bayar di Tempat)</option>
+                            <option value="dana">DANA</option>
+                            <option value="ovo">OVO</option>
+                            <option value="gopay">GoPay</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full gradient-bg text-white px-6 py-3 rounded-lg font-bold text-lg hover:opacity-90 transition">
+                            <i class="fas fa-paper-plane mr-2"></i> KIRIM PESANAN
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-primary mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-gray-600">Setelah mengisi form, Anda akan diarahkan ke WhatsApp untuk konfirmasi pesanan. Pastikan nomor WhatsApp yang Anda masukkan aktif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pertanyaan yang Sering Diajukan</h2>
+                <p class="text-lg">Temukan jawaban atas pertanyaan Anda tentang Tank Top Premium kami</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Apa bahan yang digunakan untuk Tank Top ini?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Tank Top Premium kami terbuat dari 95% Cotton dan 5% Spandex berkualitas tinggi yang lembut, menyerap keringat, dan memiliki elastisitas yang baik untuk kenyamanan maksimal.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Bagaimana cara perawatannya?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Untuk perawatan optimal, kami menyarankan:
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Cuci dengan tangan atau mesin dengan air dingin</li>
+                                <li>Gunakan deterjen lembut</li>
+                                <li>Hindari pemutih</li>
+                                <li>Jemur di tempat teduh</li>
+                                <li>Setrika dengan suhu rendah jika diperlukan</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Berapa lama pengiriman biasanya?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Waktu pengiriman bervariasi tergantung lokasi:
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Jabodetabek: 1-2 hari kerja</li>
+                                <li>Pulau Jawa: 2-3 hari kerja</li>
+                                <li>Luar Jawa: 3-5 hari kerja</li>
+                                <li>Indonesia Timur: 5-7 hari kerja</li>
+                            </ul>
+                            Kami menggunakan jasa pengiriman terpercaya seperti JNE, J&T, dan SiCepat.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Apakah ada garansi untuk produk ini?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Ya, kami memberikan garansi 100% kepuasan pelanggan. Jika produk yang Anda terima cacat atau tidak sesuai pesanan, Anda dapat mengembalikannya dalam waktu 7 hari setelah penerimaan untuk penggantian atau refund.</p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-medium text-left">Bagaimana jika ukuran tidak pas?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-4">
+                        <p class="text-gray-600">Kami menyediakan panduan ukuran yang akurat pada deskripsi produk. Jika ukuran tidak pas, Anda dapat menukar produk dalam waktu 7 hari setelah penerimaan dengan ketentuan:
+                            <ul class="list-disc pl-5 mt-2 space-y-1">
+                                <li>Produk belum dicuci atau dipakai</li>
+                                <li>Tag harga masih terpasang</li>
+                                <li>Produk dalam kondisi baru</li>
+                            </ul>
+                            Biaya pengiriman untuk penukaran ditanggung oleh pembeli.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gradient-bg text-white py-12 md:py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Jangan Lewatkan Kesempatan Ini!</h2>
+            <p class="text-xl mb-6 max-w-2xl mx-auto">Diskon 50% hanya berlaku untuk hari ini. Stok terbatas!</p>
+            
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 max-w-2xl mx-auto">
+                <a href="#order-form" class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
+                    <i class="fas fa-shopping-cart mr-2"></i> PESAN SEKARANG
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Tank%20Top%20Premium" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp mr-2"></i> CHAT KAMI
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">TankTop<span class="font-light">Premium</span></h3>
+                    <p class="text-gray-400">Produk pakaian berkualitas tinggi dengan desain eksklusif untuk wanita modern Indonesia.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Keunggulan</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimoni</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Galeri</a></li>
+                        <li><a href="#order" class="text-gray-400 hover:text-white transition">Pesan Sekarang</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Bantuan</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cara Pesan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pengiriman</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pembayaran</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kebijakan Pengembalian</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Hubungi Kami</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">0812-4931-5109</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-2 text-gray-400"></i>
+                            <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Tank%20Top%20Premium" class="text-gray-400 hover:text-white transition">WhatsApp</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">cs@tanktoppremium.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 TankTopPremium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=081249315109&text=Halo%2C%20saya%20menginginkan%20Tank%20Top%20Premium" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition z-40 chat-bubble">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Fake Notification -->
+    <div class="notification hidden" id="fakeNotification">
+        <div class="bg-white rounded-lg shadow-lg p-4 max-w-xs flex items-start">
+            <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Customer" class="w-10 h-10 rounded-full mr-3">
+            <div>
+                <div class="font-bold text-sm">Rina dari Bandung</div>
+                <div class="text-gray-600 text-sm">Baru saja memesan 2 Tank Top Premium!</div>
+                <div class="text-xs text-gray-400 mt-1">1 menit yang lalu</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Image Modal
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 0);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Dynamic Counters
+        function animateCounter(elementId, target, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const start = parseInt(element.textContent);
+            const increment = Math.floor((target - start) / (duration / 16));
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current;
+                
+                if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Fake Notification
+        function showRandomNotification() {
+            const names = ['Dewi', 'Siti', 'Ani', 'Rina', 'Dian', 'Maya', 'Linda', 'Sari'];
+            const cities = ['Jakarta', 'Bandung', 'Surabaya', 'Medan', 'Semarang', 'Yogyakarta', 'Bali'];
+            const quantities = [1, 2, 3];
+            
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomCity = cities[Math.floor(Math.random() * cities.length)];
+            const randomQuantity = quantities[Math.floor(Math.random() * quantities.length)];
+            
+            const notification = document.getElementById('fakeNotification');
+            const notificationContent = notification.querySelector('div > div');
+            
+            notificationContent.innerHTML = `
+                <div class="font-bold text-sm">${randomName} dari ${randomCity}</div>
+                <div class="text-gray-600 text-sm">Baru saja memesan ${randomQuantity} Tank Top Premium!</div>
+                <div class="text-xs text-gray-400 mt-1">${Math.floor(Math.random() * 5) + 1} menit yang lalu</div>
+            `;
+            
+            notification.classList.remove('hidden');
+            
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate counters
+            setTimeout(() => {
+                animateCounter('viewerCount', Math.floor(Math.random() * 200) + 1200);
+                animateCounter('stockCount', Math.floor(Math.random() * 10) + 5);
+            }, 1000);
+            
+            // Show first notification after 3 seconds
+            setTimeout(showRandomNotification, 3000);
+            
+            // Show random notifications every 15-30 seconds
+            setInterval(showRandomNotification, Math.floor(Math.random() * 15000) + 15000);
+        });
+    </script>
+</body>
+</html>
